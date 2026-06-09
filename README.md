@@ -1,0 +1,1 @@
+# This is Full Stack Smart-Store(Ecommerece) web app.
