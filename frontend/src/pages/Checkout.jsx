@@ -39,7 +39,7 @@ const Checkout = () => {
         key: 'rzp_test_dummykey123', // Student dummy fallback
         amount: orderData.amount,
         currency: orderData.currency,
-        name: 'ShopNest',
+        name: 'SmartStore',
         description: 'Test Transaction',
         order_id: orderData.id,
         handler: async function (response) {
@@ -132,7 +132,7 @@ const Checkout = () => {
           <input type="text" placeholder="Postal Code" required value={address.postalCode} onChange={(e) => setAddress({...address, postalCode: e.target.value})} />
           <input type="text" placeholder="Country" required value={address.country} onChange={(e) => setAddress({...address, country: e.target.value})} />
           <div className="checkout-summary">
-            <h4>Total to Pay: ₹{totalPrice.toFixed(2)}</h4>
+            <h4>Total to Pay: ${totalPrice.toFixed(2)}</h4>
             <button type="submit" className="btn">Pay Now</button>
           </div>
         </form>
