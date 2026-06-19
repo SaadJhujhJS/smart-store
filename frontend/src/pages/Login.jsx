@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 import '../styles/auth.css';
 
 const Login = () => {
@@ -20,14 +21,16 @@ const Login = () => {
       const data = await res.json();
       if (res.ok) {
         login(data);
+        toast.success('Login Successful!');
         navigate('/');
       } else {
-        alert(data.message);
+        toast.error(data.message);
       }
     } catch (error) {
       console.error(error);
     }
   };
+
 
   return (
     <div className="auth-container">

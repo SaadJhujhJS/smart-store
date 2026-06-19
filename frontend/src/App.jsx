@@ -20,6 +20,7 @@ import AdminProducts from './admin/AdminProducts';
 import EditProduct from './admin/EditProduct';
 import AdminOrders from './admin/AdminOrders';
 import AdminUsers from './admin/AdminUsers';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="/admin/orders" element={<AdminOrders />} />
           <Route path="/admin/users" element={<AdminUsers />} />
         </Routes>
+        <ToastContainer position="top-right" autoClose={3000} />
       </div>
       <Footer />
     </Router>

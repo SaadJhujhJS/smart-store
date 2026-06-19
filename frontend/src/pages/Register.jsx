@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import '../styles/auth.css';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -20,11 +21,11 @@ const Register = () => {
       });
       const data = await res.json();
       if (res.ok) {
-        alert('Registration Successful! Please check your email for the Welcome OTP.');
+        toast.success('Registration Successful! Please check your email for the Welcome OTP.');
         login(data);
         navigate('/');
       } else {
-        alert(data.message);
+        toast.error(data.message);
       }
     } catch (error) {
       console.error(error);

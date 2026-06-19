@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
 import '../styles/product.css';
+import { toast } from 'react-toastify';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -34,7 +35,7 @@ const ProductDetail = () => {
         imageUrl: product.imageUrl,
         qty: 1
       }));
-      alert('Successfully added to your cart!');
+      toast.success('Successfully added to your cart!');
     }
   };
 
@@ -43,7 +44,6 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail-wrapper" style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
-      
       {/* Breadcrumb Navigation */}
       <div style={{ color: '#a1a1aa', marginBottom: '20px', fontSize: '0.95rem' }}>
         <Link to="/" style={{ color: '#f97316' }}>Home</Link> / <Link to="/shop" style={{ color: '#f97316' }}>Shop</Link> / {product.category} / <span style={{ color: '#fff' }}>{product.name}</span>

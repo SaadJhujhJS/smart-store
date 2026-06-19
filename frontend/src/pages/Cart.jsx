@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { removeFromCart, addToCart } from '../redux/cartSlice';
 import '../styles/cart.css';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -11,6 +12,7 @@ const Cart = () => {
 
   const handleRemove = (id) => {
     dispatch(removeFromCart(id));
+    toast.warning('Item removed from cart!');
   };
 
   const handleUpdateQty = (item, qty) => {
